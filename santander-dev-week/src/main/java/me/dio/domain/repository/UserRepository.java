@@ -3,6 +3,7 @@ package me.dio.domain.repository;
 
 import me.dio.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 /*Nesse trecho de código Java, temos a declaração de uma interface chamada UserRepository,
  que é anotada com a anotação @Repository.
@@ -23,4 +24,7 @@ sem precisar escrever queries SQL manualmente.
 public interface UserRepository extends JpaRepository<User, Long> {
 
     boolean existsByAccountNumber(String accountNumber);
+
+    //@Query("SELECT * FROM USER WHERE ID = :id")
+    User findById(Integer id);
 }
